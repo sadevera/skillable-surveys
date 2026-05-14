@@ -708,25 +708,31 @@ async function submitSurvey() {
   };
 
   try {
-    // ▼▼▼ REPLACE YOUR_FORM_ID BELOW WITH YOUR FORMSPREE ENDPOINT ID ▼▼▼
-    const res = await fetch('https://formspree.io/f/xnjwkjap', {
+    // ▼▼▼ REPLACE YOUR_SCRIPT_URL BELOW WITH YOUR GOOGLE APPS SCRIPT WEB APP URL ▼▼▼
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzmCnUAg0QlwE_MpTIkPxmZ1DoihNyFtkqeWYA6B1T51zz9sZ3BpBQhIj-IXSS4MHJw/exec';
+
+    // Google Apps Script requires form-encoded data (not JSON) via no-cors mode
+    const formData = new FormData();
+    Object.entries(payload).forEach(([key, val]) => formData.append(key, val));
+
+    // Use no-cors — Google Apps Script does not return CORS headers on doPost
+    // The submission still lands in the sheet even though we cannot read the response
+    await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(payload)
+      mode: 'no-cors',
+      body: formData
     });
 
-    if (res.ok) {
-      ['card-s1','card-s2','card-s3','card-s4','card-s5','submit-bar'].forEach(id => {
-        const el = document.getElementById(id); if (el) el.style.display = 'none';
-      });
-      document.getElementById('confirmation').classList.add('show');
-      document.getElementById('prog-fill').style.width = '100%';
-      document.getElementById('prog-label').textContent = 'Submitted — thank you!';
-      document.getElementById('prog-pct').textContent = '100%';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      throw new Error('Server error');
-    }
+    // With no-cors we cannot check res.ok, so show confirmation immediately
+    ['card-s1','card-s2','card-s3','card-s4','card-s5','submit-bar'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.style.display = 'none';
+    });
+    document.getElementById('confirmation').classList.add('show');
+    document.getElementById('prog-fill').style.width = '100%';
+    document.getElementById('prog-label').textContent = 'Submitted — thank you!';
+    document.getElementById('prog-pct').textContent = '100%';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
   } catch (err) {
     btn.classList.remove('loading'); btn.disabled = false;
     alert('Something went wrong submitting your response. Please try again or contact the Enablement team.');
