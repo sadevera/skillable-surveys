@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department Head Skills Survey — Skillable 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0ede8;
+  --white: #ffffff;
+  --ink: #1c1917;
+  --ink2: #44403c;
+  --muted: #78716c;
+  --border: #d6d3d1;
+  --border2: #e7e5e4;
+  --purple: #6c3fc5;
+  --purple2: #7c52d4;
+  --purple-light: #ede8f9;
+  --purple-pale: #f5f2fd;
+  --gold: #d97706;
+  --gold-light: #fef3c7;
+  --green: #059669;
+  --green-light: #d1fae5;
+  --red: #dc2626;
+  --red-light: #fee2e2;
+  --pill-h: 38px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Sora', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; }
+
+.hero { background: var(--ink); position: relative; overflow: hidden; padding: 52px 48px 44px; }
+.hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(108,63,197,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(108,63,197,0.08) 1px, transparent 1px); background-size: 40px 40px; }
+.hero-glow { position: absolute; top: -80px; right: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(108,63,197,0.25) 0%, transparent 65%); border-radius: 50%; }
+.hero-glow2 { position: absolute; bottom: -60px; left: 10%; width: 280px; height: 280px; background: radial-gradient(circle, rgba(217,119,6,0.12) 0%, transparent 65%); border-radius: 50%; }
+.hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(108,63,197,0.2); border: 1px solid rgba(108,63,197,0.4); color: #c4b5fd; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; margin-bottom: 20px; }
+.hero-eyebrow-dot { width: 6px; height: 6px; background: #a78bfa; border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+.hero h1 { font-family: 'Lora', serif; font-size: clamp(26px, 4vw, 38px); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 12px; }
+.hero h1 em { font-style: italic; color: #c4b5fd; }
+.hero-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.75; max-width: 560px; font-weight: 300; margin-bottom: 28px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 20px; }
+.hero-meta-item { display: flex; align-items: center; gap: 7px; font-size: 12px; color: rgba(255,255,255,0.4); }
+.hero-meta-item svg { opacity: 0.5; flex-shrink: 0; }
+
+.progress-wrap { background: var(--ink); padding: 0 48px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.progress-inner { max-width: 780px; margin: 0 auto; }
+.progress-row { display: flex; justify-content: space-between; font-size: 11.5px; color: rgba(255,255,255,0.3); margin-bottom: 8px; }
+.progress-track { height: 3px; background: rgba(255,255,255,0.08); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--purple) 0%, #a78bfa 100%); border-radius: 2px; transition: width 0.5s ease; width: 0%; }
+
+.howto-strip { background: var(--purple-pale); border-bottom: 1px solid #ddd6fe; padding: 14px 48px; }
+.howto-inner { max-width: 780px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.howto-step { display: flex; align-items: center; gap: 9px; font-size: 12px; color: var(--ink2); }
+.howto-num { width: 22px; height: 22px; background: var(--purple); border-radius: 50%; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.howto-arrow { color: #c4b5fd; font-size: 14px; }
+
+.main { max-width: 780px; margin: 0 auto; padding: 40px 48px 80px; }
+
+.section-card { background: var(--white); border: 1px solid var(--border2); border-radius: 16px; margin-bottom: 20px; overflow: hidden; animation: rise 0.4s ease both; }
+@keyframes rise { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+.section-card:nth-child(1){animation-delay:.04s} .section-card:nth-child(2){animation-delay:.08s} .section-card:nth-child(3){animation-delay:.12s} .section-card:nth-child(4){animation-delay:.16s} .section-card:nth-child(5){animation-delay:.20s}
+
+.section-label { background: var(--purple); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 24px; display: flex; align-items: center; gap: 8px; }
+.section-label-num { width: 18px; height: 18px; background: rgba(255,255,255,0.2); border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+.section-body { padding: 24px 28px; }
+
+.field { margin-bottom: 22px; }
+.field:last-child { margin-bottom: 0; }
+.field-label { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; display: block; }
+.field-label .req { color: var(--red); margin-left: 3px; }
+.field-hint { font-size: 12px; color: var(--muted); margin-bottom: 10px; line-height: 1.6; font-weight: 300; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+input[type="text"], select, textarea { width: 100%; background: #fafaf9; border: 1.5px solid var(--border); border-radius: 9px; padding: 11px 14px; font-family: 'Sora', sans-serif; font-size: 13.5px; color: var(--ink); outline: none; transition: all 0.18s; line-height: 1.5; }
+input[type="text"]:focus, select:focus, textarea:focus { border-color: var(--purple); background: #fff; box-shadow: 0 0 0 3px rgba(108,63,197,0.08); }
+select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2378716c' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-color: #fafaf9; padding-right: 36px; }
+select option { background: #fff; }
+textarea { resize: vertical; min-height: 80px; }
+
+.catalog-wrap { display: none; }
+.catalog-wrap.visible { display: block; }
+.catalog-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.catalog-count-badge { font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 20px; background: var(--purple-light); color: var(--purple); border: 1px solid #ddd6fe; transition: all 0.2s; }
+.catalog-count-badge.warn { background: var(--gold-light); color: var(--gold); border-color: #fcd34d; }
+.catalog-count-badge.over { background: var(--red-light); color: var(--red); border-color: #fca5a5; }
+
+.search-box-wrap { position: relative; margin-bottom: 14px; }
+.search-box-wrap svg { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
+.search-box { width: 100%; padding: 10px 14px 10px 38px; border: 1.5px solid var(--border); border-radius: 9px; background: #fafaf9; font-family: 'Sora', sans-serif; font-size: 13px; color: var(--ink); outline: none; transition: all 0.18s; }
+.search-box:focus { border-color: var(--purple); background: #fff; box-shadow: 0 0 0 3px rgba(108,63,197,0.08); }
+
+.skill-group { margin-bottom: 20px; }
+.skill-group-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border2); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.skill-tag { height: var(--pill-h); padding: 0 14px; border: 1.5px solid var(--border); border-radius: 20px; background: #fafaf9; font-family: 'Sora', sans-serif; font-size: 12.5px; color: var(--ink2); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; transition: all 0.15s; white-space: nowrap; user-select: none; }
+.skill-tag:hover { border-color: var(--purple2); background: var(--purple-pale); color: var(--purple); }
+.skill-tag.selected { background: var(--purple-light); border-color: var(--purple2); color: #4c1d95; font-weight: 600; }
+.tag-check { width: 14px; height: 14px; background: var(--purple); border-radius: 3px; display: none; align-items: center; justify-content: center; flex-shrink: 0; }
+.skill-tag.selected .tag-check { display: inline-flex; }
+
+.no-results { text-align: center; padding: 24px; color: var(--muted); font-size: 13px; font-style: italic; display: none; }
+
+.selected-tray { margin-top: 18px; padding: 16px 18px; background: var(--purple-pale); border: 1px solid #ddd6fe; border-radius: 12px; display: none; }
+.selected-tray.visible { display: block; }
+.tray-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+.tray-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tray-tag { height: 30px; padding: 0 10px 0 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--purple); background: #fff; border: 1.5px solid var(--purple2); display: inline-flex; align-items: center; gap: 6px; cursor: pointer; transition: all 0.15s; }
+.tray-tag:hover { background: var(--red-light); border-color: var(--red); color: var(--red); }
+
+.custom-add { display: flex; gap: 10px; margin-top: 14px; }
+.custom-add input { flex: 1; }
+.add-btn { padding: 0 18px; height: 42px; background: var(--purple-pale); border: 1.5px solid #ddd6fe; border-radius: 9px; font-family: 'Sora', sans-serif; font-size: 13px; font-weight: 600; color: var(--purple); cursor: pointer; white-space: nowrap; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
+.add-btn:hover { background: var(--purple-light); border-color: var(--purple); }
+
+.ranked-list { display: flex; flex-direction: column; gap: 8px; }
+.ranked-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1.5px solid var(--border2); border-radius: 10px; background: #fafaf9; }
+.rank-num { width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; }
+.rank-num.top3 { background: var(--gold-light); color: var(--gold); }
+.rank-num.rest { background: var(--purple-pale); color: var(--purple); }
+.rank-name { flex: 1; font-size: 13.5px; font-weight: 500; color: var(--ink); }
+.rank-source { font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 8px; border-radius: 10px; background: var(--purple-pale); color: var(--purple2); }
+.rank-source.custom { background: var(--gold-light); color: var(--gold); }
+.rank-controls { display: flex; gap: 4px; }
+.rank-btn { width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 6px; background: #fff; cursor: pointer; font-size: 12px; color: var(--muted); display: flex; align-items: center; justify-content: center; transition: all 0.12s; }
+.rank-btn:hover { border-color: var(--purple2); color: var(--purple); background: var(--purple-pale); }
+.rank-remove { width: 26px; height: 26px; border: none; background: none; cursor: pointer; font-size: 16px; color: var(--muted); display: flex; align-items: center; justify-content: center; border-radius: 6px; transition: all 0.12s; }
+.rank-remove:hover { background: var(--red-light); color: var(--red); }
+
+.scale-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.scale-row { display: flex; gap: 8px; }
+.scale-opt { flex: 1; height: 46px; border: 1.5px solid var(--border); border-radius: 9px; background: #fafaf9; font-family: 'Sora', sans-serif; font-size: 17px; color: var(--ink2); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.scale-opt:hover { border-color: var(--purple2); background: var(--purple-pale); color: var(--purple); }
+.scale-opt.active { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+.submit-bar { background: var(--ink); border-radius: 16px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 8px; }
+.submit-bar-info h3 { font-family: 'Lora', serif; font-size: 20px; color: #fff; margin-bottom: 5px; }
+.submit-bar-info p { font-size: 12.5px; color: rgba(255,255,255,0.4); font-weight: 300; }
+.submit-btn { padding: 14px 32px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; white-space: nowrap; display: flex; align-items: center; gap: 8px; transition: all 0.2s; }
+.submit-btn:hover { background: var(--purple2); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(108,63,197,0.35); }
+.submit-btn:disabled { background: #78716c; cursor: not-allowed; transform: none; box-shadow: none; }
+.submit-btn .spin { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+.submit-btn.loading .spin { display: block; }
+.submit-btn.loading .btn-lbl { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.confirmation { display: none; flex-direction: column; align-items: center; text-align: center; padding: 80px 40px; }
+.confirmation.show { display: flex; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.conf-check { width: 72px; height: 72px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; box-shadow: 0 0 0 10px var(--green-light); }
+.confirmation h2 { font-family: 'Lora', serif; font-size: 30px; margin-bottom: 12px; }
+.confirmation p { color: var(--muted); font-size: 14.5px; max-width: 420px; line-height: 1.7; font-weight: 300; }
+
+@media (max-width: 640px) {
+  .hero, .progress-wrap, .howto-strip { padding-left: 24px; padding-right: 24px; }
+  .main { padding: 28px 24px 60px; }
+  .field-row { grid-template-columns: 1fr; }
+  .submit-bar { flex-direction: column; }
+  .scale-row { gap: 5px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>OKR #5 · 2026 Skills Initiative · Skillable</div>
+    <h1>Department Head<br><em>Skills Snapshot Survey</em></h1>
+    <p class="hero-desc">Help us define what great performance looks like across Skillable. Select the top 10–12 skills your team needs to do their job — drawn directly from the Docebo skills catalog (13,939 ESCO-aligned skills), pre-filtered for your function. Your selections become the foundation of your team's competency snapshot.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>~10 minutes</div>
+      <div class="hero-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Department Heads</div>
+      <div class="hero-meta-item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Results shared with Enablement &amp; COE</div>
+    </div>
+  </div>
+</div>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-row"><span id="prog-label">0 of 5 sections complete</span><span id="prog-pct">0%</span></div>
+    <div class="progress-track"><div class="progress-fill" id="prog-fill"></div></div>
+  </div>
+</div>
+
+<div class="howto-strip">
+  <div class="howto-inner">
+    <div class="howto-step"><div class="howto-num">1</div>Select your department</div>
+    <div class="howto-arrow">→</div>
+    <div class="howto-step"><div class="howto-num">2</div>Browse Docebo / ESCO skills</div>
+    <div class="howto-arrow">→</div>
+    <div class="howto-step"><div class="howto-num">3</div>Pick &amp; rank top 10–12</div>
+    <div class="howto-arrow">→</div>
+    <div class="howto-step"><div class="howto-num">4</div>Add context &amp; submit</div>
+  </div>
+</div>
+
+<div class="main" id="survey-form">
+
+  <!-- S1 -->
+  <div class="section-card" id="card-s1">
+    <div class="section-label"><div class="section-label-num">1</div>About You &amp; Your Role</div>
+    <div class="section-body">
+      <div class="field-row">
+        <div class="field"><label class="field-label">Your Name <span class="req">*</span></label><input type="text" id="f-name" placeholder="e.g., Mark Chen"></div>
+        <div class="field"><label class="field-label">Your Title <span class="req">*</span></label><input type="text" id="f-title" placeholder="e.g., VP of Sales"></div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label class="field-label">Department / Function <span class="req">*</span></label>
+          <select id="f-dept" onchange="onDeptSelect()">
+            <option value="">Select your department…</option>
+            <option value="Sales">Sales (Channel, EMEA, Direct)</option>
+            <option value="Lab Development">Lab Development</option>
+            <option value="Instructional Design">Instructional Design</option>
+            <option value="PMJ">PMJ</option>
+            <option value="Platform Support">Platform Support</option>
+            <option value="CSM">CSM</option>
+            <option value="Marketing">Marketing</option>
+            <option value="RevOps">RevOps</option>
+            <option value="Engineering">Engineering</option>
+            <option value="QA">QA</option>
+            <option value="Security">Security</option>
+            <option value="Internal IT">Internal IT</option>
+            <option value="Incident Response">Incident Response</option>
+            <option value="Platform Infrastructure">Platform Infrastructure</option>
+            <option value="Product Management">Product Management</option>
+            <option value="RevTech">RevTech</option>
+          </select>
+        </div>
+        <div class="field"><label class="field-label">Role this survey is for <span class="req">*</span></label><input type="text" id="f-role" placeholder="e.g., Account Executive, CSM, SE…"></div>
+      </div>
+      <div class="field">
+        <label class="field-label">Number of people in this role</label>
+        <select id="f-headcount"><option value="">Select…</option><option>1–3</option><option>4–8</option><option>9–15</option><option>16–25</option><option>26+</option></select>
+      </div>
+    </div>
+  </div>
+
+  <!-- S2: SKILL SELECTION -->
+  <div class="section-card" id="card-s2">
+    <div class="section-label"><div class="section-label-num">2</div>Select Top 10–12 Skills — Docebo / ESCO Catalog</div>
+    <div class="section-body">
+      <div class="field">
+        <span class="field-label">What are the top 10–12 skills your team needs to do their job? <span class="req">*</span></span>
+        <div class="field-hint">Skills below are pulled from the <strong>Docebo skills catalog</strong> (based on ESCO — 13,939 skills) and pre-filtered for your function. Select 10–12. Don't see a skill that matters? Add it as a custom skill at the bottom. You can also search across the full catalog using the search box.</div>
+      </div>
+
+      <div id="dept-prompt" style="padding:28px; text-align:center; background:#fafaf9; border:1.5px dashed var(--border); border-radius:10px; color:var(--muted); font-size:13px;">
+        ← Select your department in Section 1 to load the Docebo skills catalog for your function
+      </div>
+
+      <div class="catalog-wrap" id="catalog-wrap">
+        <div class="catalog-header">
+          <div style="font-size:12px; font-weight:600; color:var(--purple);" id="dept-badge"></div>
+          <div class="catalog-count-badge" id="count-badge">0 of 12 selected</div>
+        </div>
+        <div class="search-box-wrap">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="search-box" id="skill-search" placeholder="Search the skills catalog…" oninput="filterSkills()">
+        </div>
+        <div id="skill-groups-container"></div>
+        <div class="no-results" id="no-results">No skills match your search. Add it as a custom skill below.</div>
+        <div class="selected-tray" id="selected-tray">
+          <div class="tray-label">✓ Your selected skills</div>
+          <div class="tray-tags" id="tray-tags"></div>
+        </div>
+        <div style="margin-top:18px;">
+          <div class="field-hint">Can't find a skill that's critical for this role?</div>
+          <div class="custom-add">
+            <input type="text" id="custom-skill-input" placeholder="Type a custom skill name (e.g., Lab environment design, Virtual instructor facilitation)…">
+            <button class="add-btn" onclick="addCustom()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Custom
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S3: RANK -->
+  <div class="section-card" id="card-s3" style="display:none;">
+    <div class="section-label"><div class="section-label-num">3</div>Rank Your Selected Skills — Most to Least Critical</div>
+    <div class="section-body">
+      <div class="field">
+        <span class="field-label">Order from most to least critical for this role <span class="req">*</span></span>
+        <div class="field-hint">Use ↑ ↓ to reorder. The top 3 (gold) will be weighted highest in the competency snapshot. The bottom 3 will still be included but treated as supporting skills.</div>
+      </div>
+      <div class="ranked-list" id="ranked-list"></div>
+    </div>
+  </div>
+
+  <!-- S4: CONTEXT -->
+  <div class="section-card" id="card-s4">
+    <div class="section-label"><div class="section-label-num">4</div>Performance Context — What Good Looks Like</div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">Are there any skills specific to Skillable's products or mission that we may have missed?</label>
+        <div class="field-hint">Think about hands-on labs, virtual environments, skills validation, performance-based testing, or anything unique to our business.</div>
+        <textarea id="f-missed" rows="2" placeholder="e.g., Understanding of lab-based learning design, Knowledge of SkillAcademy platform, Virtual lab environment troubleshooting, Performance-based certification design…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: PRIORITIES -->
+  <div class="section-card" id="card-s5">
+    <div class="section-label"><div class="section-label-num">5</div>Development Priorities</div>
+    <div class="section-body">
+      <div class="field">
+        <label class="field-label">How confident are you that your team currently has the skills to deliver on your goals this year?</label>
+        <div class="scale-labels"><span>1 — Not at all confident</span><span>5 — Very confident</span></div>
+        <div class="scale-row" id="scale-confidence">
+          <button class="scale-opt" onclick="selectScale('scale-confidence',this,'s5')">1</button>
+          <button class="scale-opt" onclick="selectScale('scale-confidence',this,'s5')">2</button>
+          <button class="scale-opt" onclick="selectScale('scale-confidence',this,'s5')">3</button>
+          <button class="scale-opt" onclick="selectScale('scale-confidence',this,'s5')">4</button>
+          <button class="scale-opt" onclick="selectScale('scale-confidence',this,'s5')">5</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">Which 1–2 skills from your list, if improved, would have the greatest impact on your team's performance and customer outcomes?</label>
+        <div class="field-hint">This helps Enablement prioritize what to build first in the Docebo catalog and learning content plan.</div>
+        <textarea id="f-priority" rows="2" placeholder="e.g., Discovery questioning — if reps got meaningfully better here, everything downstream improves. Value articulation — we can explain features but struggle to connect to ROI…"></textarea>
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <label class="field-label">Anything else you'd like Enablement to know?</label>
+        <textarea id="f-other" rows="2" placeholder="Open notes, past L&D experiments that worked or didn't, constraints we should know about…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="submit-bar" id="submit-bar">
+    <div class="submit-bar-info">
+      <h3>Ready to submit?</h3>
+      <p>Your skill selections go to Enablement &amp; COE to build your team's competency snapshot.</p>
+    </div>
+    <button class="submit-btn" id="submit-btn" onclick="submitSurvey()">
+      <div class="spin"></div>
+      <span class="btn-lbl">Submit Survey →</span>
+    </button>
+  </div>
+
+  <div class="confirmation" id="confirmation">
+    <div class="conf-check"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h2>Submitted — thank you!</h2>
+    <p>Your skill selections will be used to build the competency snapshot for your team. Enablement will follow up within 5 business days with a draft for your review and sign-off before anything is published.</p>
+  </div>
+
+</div>
+
+<script>
+const CATALOG = {
+  Sales: [
+    { group: '🎯  Discovery & Qualification', skills: ['conduct sales discovery','identify customer needs','qualify sales leads','analyse customer requirements','apply consultative selling','identify decision makers','understand buying process','apply SPIN selling','conduct needs assessment','analyse business opportunities'] },
+    { group: '🤝  Customer Influence & Communication', skills: ['influence customers','communicate with customers','handle objections','build customer relationships','adapt communication style','present to audiences','executive-level communication','manage difficult conversations','build trust with clients','write professional correspondence'] },
+    { group: '💰  Negotiation & Closing', skills: ['negotiate agreements','apply commercial negotiation techniques','close sales deals','manage contract negotiations','protect profit margins','create compelling proposals','develop pricing strategies','trade variables effectively','manage multi-stakeholder negotiations'] },
+    { group: '📊  Pipeline & Opportunity Management', skills: ['manage sales pipeline','forecast sales','prioritise opportunities','use CRM software','track sales metrics','develop territory plans','manage accounts','qualify and disqualify deals','maintain CRM hygiene','manage stalled opportunities'] },
+    { group: '🧩  Product Knowledge & Value', skills: ['demonstrate product knowledge','articulate value propositions','conduct product demonstrations','translate features into business outcomes','develop business cases','calculate ROI','competitive positioning','position Skillable platform','understand virtual lab technology','understand performance-based testing'] },
+    { group: '🌍  Channel & EMEA-Specific', skills: ['manage channel partner relationships','develop partner enablement programmes','manage reseller agreements','navigate international sales cycles','localise value propositions for regional markets','manage distributor relationships','conduct partner business reviews','develop co-sell strategies'] },
+  ],
+  'Lab Development': [
+    { group: '🧪  Lab Design & Architecture', skills: ['design hands-on labs','architect lab environments','apply challenge-centric learning design','develop lab scoring rubrics','design performance-based tests','create scored labs','develop lab branching scenarios','design skills validation assessments','build multi-step lab workflows','apply instructional design to lab content'] },
+    { group: '🔧  Lab Authoring & Build', skills: ['author lab content in Skillable','configure virtual lab environments','develop lab automation scripts','build lab setup and teardown processes','validate lab functionality','test lab scoring logic','develop lab instruction content','create lab resource templates','manage lab versioning','troubleshoot lab build issues'] },
+    { group: '🤝  Collaboration & Delivery', skills: ['collaborate with subject matter experts','manage lab development projects','review and QA lab content','apply accessibility standards to lab content','deliver lab content to internal and external stakeholders','document lab design decisions','gather and apply learner feedback'] },
+    { group: '📊  Measurement & Quality', skills: ['evaluate lab learning effectiveness','analyse lab completion and scoring data','identify lab content gaps','apply quality assurance to lab builds','optimise lab difficulty and pacing','report lab performance metrics'] },
+  ],
+  'Instructional Design': [
+    { group: '🎓  Design & Development', skills: ['design learning experiences','develop curriculum','apply instructional design principles','create e-learning content','write learning objectives','design scenario-based learning','apply adult learning theory','design blended learning solutions','apply challenge-centric instructional design','develop storyboards and prototypes'] },
+    { group: '📢  Facilitation & Delivery', skills: ['facilitate instructor-led training','deliver virtual training sessions','design facilitator guides','adapt delivery to audience','manage group learning dynamics','create psychological safety','engage learners effectively','facilitate manager workshops'] },
+    { group: '📊  Measurement & Evaluation', skills: ['evaluate learning effectiveness','apply Kirkpatrick evaluation model','conduct learning needs assessments','analyse learning data','measure behaviour change','calculate training ROI','report learning metrics','design measurement frameworks'] },
+    { group: '🛠️  Tools & Technology', skills: ['use authoring tools','manage Docebo platform','use Skillable platform for lab content','leverage AI for content development','administer LMS platforms','manage learning analytics','curate external content','integrate learning technology'] },
+    { group: '🤝  Stakeholder Partnership', skills: ['consult with business stakeholders','manage L&D projects','align learning to business goals','develop competency frameworks','present L&D recommendations','manage learning programmes','build stakeholder relationships'] },
+  ],
+  PMJ: [
+    { group: '📋  Project Management', skills: ['manage implementation projects','develop project plans','manage project scope','track project milestones','manage risks and issues','apply PMI methodology','manage multi-workstream projects','run project status meetings','manage project budgets','conduct project retrospectives'] },
+    { group: '🤝  Client & Stakeholder Management', skills: ['manage client relationships','conduct discovery workshops','manage client expectations','handle scope changes','communicate project status','run executive steering committees','manage customer go-live readiness','facilitate stakeholder alignment sessions'] },
+    { group: '🔧  Technical Delivery', skills: ['configure Skillable environments','validate lab functionality','manage technical dependencies','coordinate system integrations','conduct user acceptance testing','develop technical documentation','migrate customer data','troubleshoot implementation issues'] },
+    { group: '📚  Enablement & Training', skills: ['deliver customer administrator training','develop training materials','certify customer administrators','conduct train-the-trainer sessions','create user guides','design customer onboarding programmes'] },
+    { group: '🔍  Problem Solving & Improvement', skills: ['diagnose implementation challenges','develop solution workarounds','conduct root cause analysis','escalate effectively','coordinate internal resources','manage competing priorities','contribute to process improvement'] },
+  ],
+  'Platform Support': [
+    { group: '🔧  Technical Troubleshooting', skills: ['diagnose technical issues','troubleshoot lab environments','resolve Skillable platform errors','analyse log files','replicate reported bugs','develop technical workarounds','escalate complex issues','troubleshoot Azure/cloud lab issues','debug lab scoring failures','investigate API integration issues'] },
+    { group: '🤝  Customer Communication', skills: ['communicate technical solutions clearly','manage customer expectations','handle frustrated customers','write support documentation','provide proactive status updates','set accurate resolution timelines','conduct customer follow-ups','de-escalate customer frustration'] },
+    { group: '🧩  Platform & Product Knowledge', skills: ['deep knowledge of Skillable platform','understand lab architecture','know Skillable API capabilities','understand integration patterns','stay current on product changes','advise customers on best practices','understand lab scoring mechanics','understand performance-based testing infrastructure'] },
+    { group: '📊  Case Management & Reporting', skills: ['manage support tickets','prioritise support queue','meet SLA targets','analyse support trends','identify recurring platform issues','contribute to knowledge base articles','report support metrics to leadership'] },
+    { group: '🔍  Quality & Improvement', skills: ['identify process improvement opportunities','develop knowledge base content','share learnings with product and engineering teams','automate repetitive support tasks','mentor tier-1 support agents','contribute to self-service resources'] },
+  ],
+  CSM: [
+    { group: '🎯  Onboarding & Adoption', skills: ['onboard customers','drive product adoption','develop customer success plans','conduct customer training','monitor adoption metrics','design onboarding journeys','facilitate go-live readiness','configure Skillable environments for customers'] },
+    { group: '🤝  Relationship Management', skills: ['manage customer relationships','conduct business reviews','build executive relationships','identify customer champions','manage stakeholder expectations','communicate proactively','run executive business reviews','manage multi-stakeholder accounts','build long-term partnerships'] },
+    { group: '📈  Retention & Expansion', skills: ['manage customer renewals','identify upsell opportunities','develop expansion strategies','manage churn risk','analyse customer health scores','negotiate contract renewals','develop account expansion plans','build renewal forecasts'] },
+    { group: '🔍  Problem Solving & Escalation', skills: ['troubleshoot customer issues','manage escalations','conduct root cause analysis','coordinate cross-functional resolution','manage critical situations','de-escalate customer frustration','communicate issue status'] },
+    { group: '🧩  Platform & Domain Knowledge', skills: ['demonstrate deep product knowledge','translate platform capabilities to outcomes','articulate product roadmap to customers','understand virtual lab technology','advise on hands-on learning strategy','understand skills validation use cases','interpret lab usage analytics'] },
+  ],
+  Marketing: [
+    { group: '📣  Demand Generation', skills: ['develop demand generation strategy','manage paid media campaigns','execute email marketing programmes','develop content marketing strategy','manage marketing automation','optimise conversion funnels','run account-based marketing programmes','manage webinar programmes'] },
+    { group: '✍️  Content & Messaging', skills: ['develop brand messaging','create thought leadership content','write compelling copy','develop customer case studies','create sales collateral','manage content calendar','produce multimedia content','develop skills and L&D market messaging'] },
+    { group: '📊  Analytics & Performance', skills: ['analyse marketing performance','measure campaign ROI','use marketing analytics tools','track attribution models','develop marketing dashboards','present marketing results to leadership'] },
+    { group: '🤝  Sales Alignment', skills: ['align marketing and sales','develop sales enablement content','manage lead qualification process','support account-based programmes','create buyer personas','map content to buyer journey'] },
+    { group: '🌐  Market Intelligence', skills: ['conduct market research','perform competitive analysis','analyse customer insights','identify learning technology market trends','develop positioning strategy','monitor skills and certification industry'] },
+  ],
+  RevOps: [
+    { group: '📊  Data & Analytics', skills: ['analyse sales data','develop revenue reports','build dashboards','conduct pipeline analysis','forecast revenue','identify data trends','build revenue models','interpret GTM metrics','evaluate business performance'] },
+    { group: '🔧  Systems & Tools', skills: ['administer CRM systems','manage sales technology stack','integrate business systems','automate workflows','manage data quality','manage Salesforce','administer sales engagement platforms','configure reporting systems','evaluate technology vendors'] },
+    { group: '⚙️  Process Design', skills: ['design sales processes','document workflows','optimise business processes','develop sales playbooks','define standard operating procedures','design lead routing logic','manage territory assignment processes','manage change programmes'] },
+    { group: '🎯  Enablement & Alignment', skills: ['develop sales enablement materials','onboard new team members','align cross-functional teams','manage incentive programmes','develop compensation models','communicate strategy to field'] },
+    { group: '📈  Planning & Strategy', skills: ['develop territory plans','manage headcount planning','develop annual operating plans','track OKRs and KPIs','build annual recurring revenue models','analyse market opportunities'] },
+  ],
+  Engineering: [
+    { group: '💻  Software Development', skills: ['write clean code','apply software development lifecycle','perform code reviews','implement testing strategies','debug and troubleshoot software','develop APIs','apply design patterns','manage technical debt','conduct system design','apply SOLID principles'] },
+    { group: '☁️  Cloud & Infrastructure', skills: ['manage cloud infrastructure','implement DevOps practices','configure CI/CD pipelines','manage containers and orchestration','implement security practices','monitor system performance','manage scalable architectures','implement infrastructure as code','manage Azure/AWS environments'] },
+    { group: '🧪  Lab & Platform Engineering', skills: ['develop virtual lab environments','build scoring and validation systems','architect lab delivery platforms','implement performance-based testing','manage lab infrastructure','develop lab APIs','design lab orchestration systems','build skills assessment engines'] },
+    { group: '🤝  Collaboration & Process', skills: ['work in agile teams','communicate technical decisions','document technical specifications','mentor junior engineers','participate in sprint planning','conduct system design reviews','contribute to technical roadmap','manage technical projects'] },
+    { group: '🔍  Analysis & Problem Solving', skills: ['analyse complex technical problems','design scalable solutions','evaluate technical trade-offs','conduct root cause analysis','prototype rapidly','apply systems thinking','debug distributed systems'] },
+  ],
+  QA: [
+    { group: '🧪  Testing & Quality Assurance', skills: ['design test plans','write test cases','execute manual test cases','perform regression testing','conduct exploratory testing','develop automated test scripts','perform functional testing','conduct API testing','execute performance and load testing','validate lab scoring logic'] },
+    { group: '🔧  Tools & Automation', skills: ['use test management tools','implement automated testing frameworks','configure CI/CD test pipelines','use defect tracking systems','perform test data management','write acceptance criteria','use browser automation tools','develop test harnesses for lab environments'] },
+    { group: '🔍  Defect Management & Reporting', skills: ['identify and document defects','prioritise defect resolution','conduct root cause analysis','communicate quality issues to engineering','report test coverage and results','track defect metrics','manage regression test suites','perform risk-based testing'] },
+    { group: '🤝  Collaboration & Process', skills: ['collaborate with engineering and product teams','participate in sprint planning and reviews','review requirements and user stories','apply agile QA practices','define quality standards','contribute to process improvement','mentor junior QA engineers'] },
+  ],
+  Security: [
+    { group: '🔒  Security Operations', skills: ['monitor security events and alerts','investigate security incidents','perform threat detection and analysis','manage security information and event management (SIEM)','conduct vulnerability assessments','implement security controls','respond to security incidents','perform log analysis and forensics'] },
+    { group: '🛡️  Risk & Compliance', skills: ['assess security risks','develop risk mitigation plans','ensure regulatory compliance','manage security policies and standards','conduct security audits','apply data protection principles','manage third-party security risk','implement access control frameworks'] },
+    { group: '🔧  Technical Security', skills: ['manage identity and access management','implement endpoint security','configure network security controls','manage cloud security posture','conduct penetration testing','assess application security','implement encryption and key management','manage certificate infrastructure'] },
+    { group: '🤝  Collaboration & Enablement', skills: ['educate staff on security awareness','collaborate with engineering on secure design','advise on security architecture','develop security documentation','communicate risk to leadership','participate in incident response exercises','contribute to security roadmap'] },
+  ],
+  'Internal IT': [
+    { group: '🖥️  IT Operations & Support', skills: ['manage IT helpdesk','provide tier-1 and tier-2 support','manage hardware and software assets','configure and deploy endpoints','manage user accounts and permissions','administer Microsoft 365','troubleshoot connectivity and network issues','manage IT service requests'] },
+    { group: '🔧  Systems Administration', skills: ['administer identity providers','manage directory services','configure SSO and MFA','manage device management platforms (MDM)','administer SaaS applications','manage IT procurement','maintain IT documentation','support AV and collaboration tools'] },
+    { group: '📋  Projects & Process', skills: ['manage IT projects','document IT processes','manage IT vendor relationships','conduct IT asset audits','develop IT policies and procedures','onboard and offboard employees','evaluate and implement new tools','manage IT budgets'] },
+    { group: '🔒  Security & Compliance', skills: ['enforce IT security policies','manage endpoint protection','apply data loss prevention controls','support compliance requirements','manage IT risk','implement least-privilege access','conduct IT security awareness training'] },
+  ],
+  'Incident Response': [
+    { group: '🚨  Incident Detection & Response', skills: ['detect and triage security incidents','coordinate incident response activities','contain and eradicate threats','perform digital forensics','analyse malware and attack vectors','conduct post-incident reviews','develop incident response playbooks','manage communication during incidents'] },
+    { group: '🔍  Investigation & Analysis', skills: ['perform log analysis','conduct threat hunting','analyse network traffic','investigate endpoint activity','perform root cause analysis','document incident timelines','apply MITRE ATT&CK framework','use threat intelligence feeds'] },
+    { group: '🛡️  Preparedness & Improvement', skills: ['develop and test incident response plans','conduct tabletop exercises','improve detection rules and alerts','manage SIEM and SOAR platforms','coordinate with law enforcement and regulators when required','train staff on incident response procedures','track and report incident metrics'] },
+    { group: '🤝  Collaboration & Communication', skills: ['coordinate cross-functional incident response teams','communicate incident status to leadership','liaise with external security partners','document lessons learned','contribute to security roadmap','manage stakeholder expectations during incidents'] },
+  ],
+  'Platform Infrastructure': [
+    { group: '☁️  Cloud & Infrastructure Management', skills: ['manage cloud infrastructure','administer Azure environments','implement infrastructure as code','manage container orchestration','configure virtual networks','manage cloud storage and databases','optimise cloud cost','implement disaster recovery and business continuity'] },
+    { group: '⚙️  Platform Operations', skills: ['monitor platform performance and availability','manage platform deployments','configure CI/CD pipelines','manage platform scaling and capacity','implement platform observability','troubleshoot infrastructure issues','manage lab delivery infrastructure','optimise lab environment provisioning'] },
+    { group: '🔒  Security & Compliance', skills: ['implement cloud security controls','manage identity and access for infrastructure','apply compliance frameworks to infrastructure','manage secrets and certificate management','conduct infrastructure security reviews','implement network security policies'] },
+    { group: '🤝  Collaboration & Engineering', skills: ['collaborate with engineering on platform design','contribute to technical roadmap','document infrastructure architecture','mentor team members on infrastructure practices','participate in incident response','manage infrastructure vendor relationships','evaluate new infrastructure technologies'] },
+  ],
+  'Product Management': [
+    { group: '🔭  Strategy & Discovery', skills: ['conduct product discovery','develop product strategy','analyse market opportunities','conduct competitive analysis','define product vision','develop business cases','identify customer problems','validate product hypotheses','research skills and certification market trends','understand enterprise L&D buyer needs'] },
+    { group: '📋  Planning & Prioritisation', skills: ['manage product roadmaps','prioritise product backlog','write user stories','define acceptance criteria','manage product lifecycle','apply prioritisation frameworks','manage cross-team dependencies','run PI planning sessions'] },
+    { group: '🤝  Stakeholder Management', skills: ['align stakeholders on product direction','present to executives','manage cross-functional collaboration','communicate product decisions','gather and synthesise customer feedback','manage customer advisory boards'] },
+    { group: '📊  Data & Metrics', skills: ['define product metrics','analyse product data','conduct A/B testing','interpret user research','track adoption metrics','evaluate feature performance','develop measurement frameworks','interpret lab usage analytics'] },
+    { group: '🧩  Domain Knowledge', skills: ['understand learning technology landscape','know skills and credentialing industry trends','understand virtual lab technology','understand performance-based testing','know hands-on learning design principles','articulate Skillable platform capabilities','understand digital skills frameworks'] },
+  ],
+  RevTech: [
+    { group: '🔧  Technical Systems Management', skills: ['administer CRM systems','manage Salesforce configuration','administer sales engagement platforms','manage marketing automation platforms','integrate revenue technology stack','automate revenue workflows','manage data quality across systems','configure reporting and analytics tools'] },
+    { group: '📊  Data & Analytics', skills: ['analyse GTM performance data','build revenue dashboards','conduct pipeline and attribution analysis','manage data governance','interpret sales and marketing metrics','develop revenue forecasting models','ensure data integrity across tools','build self-service reporting'] },
+    { group: '🤝  Customer Technology Success', skills: ['manage customer-facing technology implementations','provide technical guidance to customers on platform use','advise on Skillable integration patterns','troubleshoot customer technology issues','train customers on platform configuration','develop technical documentation for customers','manage technology adoption programmes'] },
+    { group: '⚙️  Process & Enablement', skills: ['design and document revenue processes','develop technology user guides and training','onboard revenue team members to tools','manage technology change programmes','align cross-functional teams on system usage','evaluate and implement new revenue tools','communicate system updates to stakeholders'] },
+    { group: '🔍  Analysis & Optimisation', skills: ['identify revenue technology gaps','optimise system configuration for performance','conduct technology audits','evaluate technology vendor performance','manage technology roadmap','apply systems thinking to revenue operations','conduct user needs assessments for technology'] },
+  ],
+  default: [
+    { group: '🧠  Thinking & Problem Solving', skills: ['critical thinking','problem solving','analytical thinking','decision making','systems thinking','creativity and innovation','learning agility','apply design thinking'] },
+    { group: '🤝  Communication & Collaboration', skills: ['communicate effectively','collaborate with teams','present to audiences','write professionally','active listening','manage conflict','influence stakeholders','negotiate agreements','adapt communication style'] },
+    { group: '📊  Data & Digital', skills: ['analyse data','use digital tools','use office software','manage information','apply digital literacy','create data visualisations','ensure data quality','use AI tools effectively'] },
+    { group: '🎯  Planning & Execution', skills: ['manage projects','plan and organise work','manage competing priorities','meet deadlines consistently','manage risks','continuous improvement mindset','quality management','manage upward and laterally'] },
+    { group: '🌱  Adaptability & Growth', skills: ['adapt to change','continuous learning','resilience under pressure','take initiative','self-manage workload','professional development planning','growth mindset'] },
+    { group: '👥  Leadership & People', skills: ['lead teams','coach and mentor','delegate effectively','develop talent','build trust-based relationships','manage performance','foster inclusion and belonging','run effective meetings'] },
+  ]
+};
+
+let selectedSkills = [];
+let rankedSkills = [];
+let sectionsDone = new Set();
+const TOTAL = 5;
+
+function onDeptSelect() {
+  const dept = document.getElementById('f-dept').value;
+  if (!dept) return;
+  checkS1();
+  loadCatalog(dept);
+}
+
+function checkS1() {
+  const name = document.getElementById('f-name').value.trim();
+  const dept = document.getElementById('f-dept').value;
+  const role = document.getElementById('f-role').value.trim();
+  if (name && dept && role) markDone('s1');
+}
+['f-name','f-title','f-role'].forEach(id => document.getElementById(id).addEventListener('input', checkS1));
+
+function loadCatalog(dept) {
+  const data = CATALOG[dept] || CATALOG['default'];
+  const container = document.getElementById('skill-groups-container');
+  const wrap = document.getElementById('catalog-wrap');
+
+  container.innerHTML = '';
+  selectedSkills = []; rankedSkills = [];
+  updateCount(); updateTray();
+  document.getElementById('ranked-list').innerHTML = '';
+  document.getElementById('card-s3').style.display = 'none';
+  document.getElementById('skill-search').value = '';
+  document.getElementById('no-results').style.display = 'none';
+  document.getElementById('dept-prompt').style.display = 'none';
+  document.getElementById('dept-badge').textContent = dept + ' · Docebo / ESCO Skills Catalog';
+  wrap.classList.add('visible');
+
+  data.forEach(group => {
+    const groupEl = document.createElement('div');
+    groupEl.className = 'skill-group';
+    groupEl.innerHTML = `<div class="skill-group-title">${group.group}</div><div class="skill-tags"></div>`;
+    const tagsEl = groupEl.querySelector('.skill-tags');
+    group.skills.forEach(skill => tagsEl.appendChild(makeTag(skill, 'ESCO')));
+    container.appendChild(groupEl);
+  });
+}
+
+function makeTag(skill, source) {
+  const tag = document.createElement('button');
+  tag.className = 'skill-tag';
+  tag.dataset.skill = skill; tag.dataset.source = source;
+  tag.innerHTML = `<span class="tag-check"><svg width="9" height="7" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>${skill}`;
+  tag.onclick = () => toggleTag(tag, skill, source);
+  return tag;
+}
+
+function toggleTag(el, skill, source) {
+  const isSel = el.classList.contains('selected');
+  if (!isSel && selectedSkills.length >= 12) {
+    const b = document.getElementById('count-badge');
+    b.classList.add('over');
+    setTimeout(() => b.classList.remove('over'), 1200);
+    return;
+  }
+  if (isSel) {
+    el.classList.remove('selected');
+    selectedSkills = selectedSkills.filter(s => s.name !== skill);
+  } else {
+    el.classList.add('selected');
+    selectedSkills.push({ name: skill, source });
+  }
+  updateCount(); updateTray();
+  if (selectedSkills.length >= 8) markDone('s2');
+}
+
+function addCustom() {
+  const input = document.getElementById('custom-skill-input');
+  const val = input.value.trim();
+  if (!val) return;
+  if (selectedSkills.length >= 12) { alert('Maximum 12 skills. Remove one first.'); return; }
+  let cg = document.querySelector('[data-custom-group]');
+  if (!cg) {
+    cg = document.createElement('div');
+    cg.className = 'skill-group'; cg.setAttribute('data-custom-group', '1');
+    cg.innerHTML = `<div class="skill-group-title">✏️  Custom Skills</div><div class="skill-tags"></div>`;
+    document.getElementById('skill-groups-container').appendChild(cg);
+  }
+  const tag = makeTag(val, 'Custom');
+  cg.querySelector('.skill-tags').appendChild(tag);
+  selectedSkills.push({ name: val, source: 'Custom' });
+  tag.classList.add('selected');
+  updateCount(); updateTray();
+  input.value = '';
+  if (selectedSkills.length >= 8) markDone('s2');
+}
+
+function updateCount() {
+  const n = selectedSkills.length;
+  const b = document.getElementById('count-badge');
+  b.textContent = n === 0 ? '0 of 12 selected' : n < 10 ? `${n} selected — need at least 10` : `${n} of 12 selected`;
+  b.className = 'catalog-count-badge' + (n > 12 ? ' over' : n >= 10 ? ' warn' : '');
+  const rankCard = document.getElementById('card-s3');
+  if (n >= 8) { rankCard.style.display = ''; rebuildRanked(); } else rankCard.style.display = 'none';
+}
+
+function updateTray() {
+  const tray = document.getElementById('selected-tray');
+  const tags = document.getElementById('tray-tags');
+  tags.innerHTML = '';
+  if (!selectedSkills.length) { tray.classList.remove('visible'); return; }
+  tray.classList.add('visible');
+  selectedSkills.forEach(s => {
+    const t = document.createElement('button');
+    t.className = 'tray-tag';
+    t.innerHTML = `${s.name} <span>×</span>`;
+    t.onclick = () => removeSkill(s.name);
+    tags.appendChild(t);
+  });
+}
+
+function removeSkill(name) {
+  selectedSkills = selectedSkills.filter(s => s.name !== name);
+  document.querySelectorAll('.skill-tag').forEach(el => { if (el.dataset.skill === name) el.classList.remove('selected'); });
+  updateCount(); updateTray();
+}
+
+function filterSkills() {
+  const q = document.getElementById('skill-search').value.toLowerCase().trim();
+  let any = false;
+  document.querySelectorAll('.skill-group').forEach(g => {
+    let gv = false;
+    g.querySelectorAll('.skill-tag').forEach(t => {
+      const m = !q || t.dataset.skill.toLowerCase().includes(q);
+      t.style.display = m ? '' : 'none';
+      if (m) gv = true;
+    });
+    g.style.display = gv ? '' : 'none';
+    if (gv) any = true;
+  });
+  document.getElementById('no-results').style.display = any || !q ? 'none' : 'block';
+}
+
+function rebuildRanked() {
+  rankedSkills = [...selectedSkills];
+  const list = document.getElementById('ranked-list');
+  list.innerHTML = '';
+  rankedSkills.forEach((s, i) => list.appendChild(makeRanked(s, i)));
+}
+
+function makeRanked(s, i) {
+  const item = document.createElement('div');
+  item.className = 'ranked-item';
+  item.innerHTML = `
+    <div class="rank-num ${i < 3 ? 'top3' : 'rest'}">${i + 1}</div>
+    <div class="rank-name">${s.name}</div>
+    <span class="rank-source ${s.source === 'Custom' ? 'custom' : ''}">${s.source}</span>
+    <div class="rank-controls">
+      <button class="rank-btn" onclick="moveRank(${i},-1)">↑</button>
+      <button class="rank-btn" onclick="moveRank(${i},1)">↓</button>
+    </div>
+    <button class="rank-remove" onclick="removeRanked(${i})">×</button>`;
+  return item;
+}
+
+function moveRank(i, d) {
+  const j = i + d;
+  if (j < 0 || j >= rankedSkills.length) return;
+  [rankedSkills[i], rankedSkills[j]] = [rankedSkills[j], rankedSkills[i]];
+  const list = document.getElementById('ranked-list');
+  list.innerHTML = '';
+  rankedSkills.forEach((s, idx) => list.appendChild(makeRanked(s, idx)));
+}
+
+function removeRanked(i) {
+  const r = rankedSkills[i];
+  rankedSkills.splice(i, 1);
+  removeSkill(r.name);
+}
+
+function selectScale(gid, btn, section) {
+  document.querySelectorAll(`#${gid} .scale-opt`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  markDone(section);
+}
+
+['f-missed'].forEach(id => document.getElementById(id).addEventListener('input', () => markDone('s4')));
+['f-priority','f-other'].forEach(id => document.getElementById(id).addEventListener('input', () => markDone('s5')));
+
+function markDone(id) {
+  sectionsDone.add(id);
+  const n = sectionsDone.size;
+  const pct = Math.round((n / TOTAL) * 100);
+  document.getElementById('prog-label').textContent = `${n} of ${TOTAL} sections complete`;
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-fill').style.width = pct + '%';
+}
+
+async function submitSurvey() {
+  const name = document.getElementById('f-name').value.trim();
+  const dept = document.getElementById('f-dept').value;
+  const role = document.getElementById('f-role').value.trim();
+  if (!name || !dept || !role) { alert('Please complete Section 1 — your name, department, and role — before submitting.'); return; }
+  if (selectedSkills.length < 10) { alert('Please select at least 10 skills from the Docebo catalog before submitting.'); return; }
+
+  const btn = document.getElementById('submit-btn');
+  btn.classList.add('loading'); btn.disabled = true;
+
+  // Build payload — all survey fields captured as named columns
+  const payload = {
+    respondent_name:      name,
+    respondent_title:     document.getElementById('f-title').value.trim(),
+    department:           dept,
+    role_surveyed:        role,
+    team_size:            document.getElementById('f-headcount').value,
+    selected_skills:      selectedSkills.map(s => s.name).join(' | '),
+    skill_count:          selectedSkills.length,
+    ranked_1:             rankedSkills[0]  ? rankedSkills[0].name  : '',
+    ranked_2:             rankedSkills[1]  ? rankedSkills[1].name  : '',
+    ranked_3:             rankedSkills[2]  ? rankedSkills[2].name  : '',
+    ranked_4:             rankedSkills[3]  ? rankedSkills[3].name  : '',
+    ranked_5:             rankedSkills[4]  ? rankedSkills[4].name  : '',
+    ranked_6:             rankedSkills[5]  ? rankedSkills[5].name  : '',
+    ranked_7:             rankedSkills[6]  ? rankedSkills[6].name  : '',
+    ranked_8:             rankedSkills[7]  ? rankedSkills[7].name  : '',
+    ranked_9:             rankedSkills[8]  ? rankedSkills[8].name  : '',
+    ranked_10:            rankedSkills[9]  ? rankedSkills[9].name  : '',
+    ranked_11:            rankedSkills[10] ? rankedSkills[10].name : '',
+    ranked_12:            rankedSkills[11] ? rankedSkills[11].name : '',
+    custom_skills_added:  selectedSkills.filter(s => s.source === 'Custom').map(s => s.name).join(' | '),
+    skillable_skills_missed: document.getElementById('f-missed').value.trim(),
+    confidence_rating:    (document.querySelector('#scale-confidence .active') || {}).textContent || '',
+    highest_impact_skills: document.getElementById('f-priority').value.trim(),
+    other_notes:          document.getElementById('f-other').value.trim(),
+    submitted_at:         new Date().toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' })
+  };
+
+  try {
+    // ▼▼▼ REPLACE YOUR_FORM_ID BELOW WITH YOUR FORMSPREE ENDPOINT ID ▼▼▼
+    const res = await fetch('https://formspree.io/f/xnjwkjap', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      ['card-s1','card-s2','card-s3','card-s4','card-s5','submit-bar'].forEach(id => {
+        const el = document.getElementById(id); if (el) el.style.display = 'none';
+      });
+      document.getElementById('confirmation').classList.add('show');
+      document.getElementById('prog-fill').style.width = '100%';
+      document.getElementById('prog-label').textContent = 'Submitted — thank you!';
+      document.getElementById('prog-pct').textContent = '100%';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    btn.classList.remove('loading'); btn.disabled = false;
+    alert('Something went wrong submitting your response. Please try again or contact the Enablement team.');
+  }
+}
+</script>
+</body>
+</html>
